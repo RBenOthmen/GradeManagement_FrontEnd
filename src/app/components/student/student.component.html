@@ -1,0 +1,23 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <!-- <th scope="col">Id</th> -->
+      <th scope="col">CIN</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <button type="button" class="btn btn-info w-100">Search</button>
+    </tr>
+  </thead>
+  <tbody *ngFor="let student of students">
+    <tr>
+      <!-- <td>{{student.getId()}}</td> -->
+      <td>{{ student.getCin() }}</td>
+      <td>{{ student.getFirstName() }}</td>
+      <td>{{ student.getLastName() }}</td>
+      <div class="d-flex gap-2 col-6 mx-auto">
+        <button type="button" class="btn btn-info w-100">Info</button>
+        <button type="button" class="btn btn-warning w-100 ms-2">Edit</button>
+    </div>
+    </tr>
+  </tbody>
+</table>
