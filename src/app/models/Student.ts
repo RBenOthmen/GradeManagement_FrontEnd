@@ -9,7 +9,7 @@ export class Student {
   private image_url: string | undefined;
   private level: string;
   private cin: string;
-  private subjects?: Subjects;
+  public subjects?: Subjects;
 
   constructor(
     id: BigInt,
@@ -19,7 +19,8 @@ export class Student {
     phone: string,
     image_url: string,
     level: string,
-    cin: string
+    cin: string,
+    subjects: Subjects
   ) {
     this.id = id;
     this.first_name = first_name;
@@ -29,6 +30,7 @@ export class Student {
     this.image_url = image_url;
     this.level = level;
     this.cin = cin;
+    this.subjects = subjects;
   }
 
   public getId(): BigInt {
@@ -54,6 +56,10 @@ export class Student {
   }
   public getCin(): string {
     return this.cin;
+  }
+
+  public getSubjects(): Subjects | undefined {
+    return this.subjects;
   }
 
   public setId(id: BigInt): void {

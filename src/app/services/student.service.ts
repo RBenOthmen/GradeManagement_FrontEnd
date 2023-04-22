@@ -33,6 +33,6 @@ export class StudentService {
   }
 
   public getAllStudents(): Observable<Student[]> {
-    return this.httpClient.get<Student[]>(`${this.apiServerUrl}/student/all`);
+    return this.httpClient.get<Student[]>(`${this.apiServerUrl}/student/find`);
   }
 }

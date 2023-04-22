@@ -54,7 +54,8 @@ export class StudentComponent implements OnInit {
               student.phone,
               student.image_url,
               student.level,
-              student.cin
+              student.cin,
+              student.subjects
             )
         );
         console.log(this.students);

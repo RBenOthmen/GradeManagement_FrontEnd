@@ -2,6 +2,8 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
+      <h1>{{student?.getFirstName() + " " + student?.getLastName()}}</h1>
+      <h2>Information</h2>
       <div class="table">
         <thead>
           <tr>
@@ -13,6 +15,7 @@
             <th>Image</th>
             <th>CIN</th>
             <th>Level</th>
+            <th></th>
           </tr>
         </thead>
 
@@ -26,33 +29,36 @@
             <td> <p> {{ student?.getImageUrl() }} </p> </td>
             <td> <p> {{ student?.getCin() }} </p> </td>
             <td> <p> {{ student?.getLevel() }} </p> </td>
+            <td> <button type="button" class="btn btn-danger">Delete</button>
+            </td>
           </tr>
         </tbody>
       </div>
 
+      <h2>Grades</h2>
       <div class="table">
         <thead>
           <tr>
-            <th>Id</th>
             <th>Web</th>
             <th>AI</th>
             <th>Data Mining</th>
             <th>Python</th>
             <th>Document Management</th>
             <th>DevOps</th>
+            <th></th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
-            <td> <p> {{ student?.getId() }} </p> </td>
-            <td> <p> {{ student?.getFirstName() }} </p> </td>
-            <td> <p> {{ student?.getLastName() }} </p> </td>
-            <td> <p> {{ student?.getEmail() }} </p> </td>
-            <td> <p> {{ student?.getPhone() }} </p> </td>
-            <td> <p> {{ student?.getImageUrl() }} </p> </td>
-            <td> <p> {{ student?.getCin() }} </p> </td>
-            <td> <p> {{ student?.getLevel() }} </p> </td>
+            <td> <p> {{ student?.subjects?.web }} </p> </td>
+            <td> <p> {{ student?.subjects?.ai }} </p> </td>
+            <td> <p> {{ student?.subjects?.data_mining }} </p> </td>
+            <td> <p> {{ student?.subjects?.python }} </p> </td>
+            <td> <p> {{ student?.subjects?.document_management }} </p> </td>
+            <td> <p> {{ student?.subjects?.dev_ops }} </p> </td>
+            <td> <button type="button" class="btn btn-warning">Edit</button>
+            </td>
           </tr>
         </tbody>
       </div>
