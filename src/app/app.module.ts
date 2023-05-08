@@ -7,7 +7,10 @@ import { StudentComponent } from './components/student/student.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './components/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
+
+import { MatCardModule } from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +20,9 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

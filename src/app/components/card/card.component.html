@@ -1,8 +1,7 @@
-
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="justify-content-center">
     <div class="col-md-6">
-      <h1>{{student?.getFirstName() + " " + student?.getLastName()}}</h1>
+      <h1>{{ student?.getFirstName() + " " + student?.getLastName() }}</h1>
       <h2>Information</h2>
       <div class="table">
         <thead>
@@ -21,19 +20,74 @@
 
         <tbody>
           <tr>
-            <td> <p> {{ student?.getId() }} </p> </td>
-            <td> <p> {{ student?.getFirstName() }} </p> </td>
-            <td> <p> {{ student?.getLastName() }} </p> </td>
-            <td> <p> {{ student?.getEmail() }} </p> </td>
-            <td> <p> {{ student?.getPhone() }} </p> </td>
-            <td> <p> {{ student?.getImageUrl() }} </p> </td>
-            <td> <p> {{ student?.getCin() }} </p> </td>
-            <td> <p> {{ student?.getLevel() }} </p> </td>
-            <td> <button type="button" class="btn btn-danger">Delete</button>
+            <td>
+              <p>{{ student?.getId() }}</p>
+            </td>
+            <td>
+              <p>{{ student?.getFirstName() }}</p>
+            </td>
+            <td>
+              <p>{{ student?.getLastName() }}</p>
+            </td>
+            <td>
+              <p>{{ student?.getEmail() }}</p>
+            </td>
+            <td>
+              <p>{{ student?.getPhone() }}</p>
+            </td>
+            <td>
+              <p>{{ student?.getImageUrl() }}</p>
+            </td>
+            <td>
+              <p>{{ student?.getCin() }}</p>
+            </td>
+            <td>
+              <p>{{ student?.getLevel() }}</p>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">Delete</button>
             </td>
           </tr>
         </tbody>
       </div>
+      <!-- <div class="table">
+        <thead>
+          <tr>
+            <th>Web</th>
+            <th>AI</th>
+            <th>Data Mining</th>
+            <th>Python</th>
+            <th>Document Management</th>
+            <th>DevOps</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>
+              <p>{{ student?.subjects?.web }}</p>
+            </td>
+            <td>
+              <p>{{ student?.subjects?.ai }}</p>
+            </td>
+            <td>
+              <p>{{ student?.subjects?.data_mining }}</p>
+            </td>
+            <td>
+              <p>{{ student?.subjects?.python }}</p>
+            </td>
+            <td>
+              <p>{{ student?.subjects?.document_management }}</p>
+            </td>
+            <td>
+              <p>{{ student?.subjects?.dev_ops }}</p>
+            </td>
+          </tr>
+        </tbody>
+      </div> -->
+
+      <!-- ---------------------------------------------------------- -->
 
       <h2>Grades</h2>
       <div class="table">
@@ -51,14 +105,49 @@
 
         <tbody>
           <tr>
-            <td> <p> {{ student?.subjects?.web }} </p> </td>
-            <td> <p> {{ student?.subjects?.ai }} </p> </td>
-            <td> <p> {{ student?.subjects?.data_mining }} </p> </td>
-            <td> <p> {{ student?.subjects?.python }} </p> </td>
-            <td> <p> {{ student?.subjects?.document_management }} </p> </td>
-            <td> <p> {{ student?.subjects?.dev_ops }} </p> </td>
-            <td> <button type="button" class="btn btn-warning">Edit</button>
+            <td>
+              <input
+                type="number"
+                name="web"
+                [ngModel]="student?.subjects?.web ?? 0"
+              />
             </td>
+            <td>
+              <input
+                type="number"
+                name="ai"
+                [ngModel]="student?.subjects?.ai ?? 0"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                name="data_mining"
+                [ngModel]="student?.subjects?.data_mining"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                name="python"
+                [ngModel]="student?.subjects?.python"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                name="document_management"
+                [ngModel]="student?.subjects?.document_management"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                name="dev_ops"
+                [ngModel]="student?.subjects?.dev_ops"
+              />
+            </td>
+            <td><button type="button" class="btn btn-warning">Edit</button></td>
           </tr>
         </tbody>
       </div>
