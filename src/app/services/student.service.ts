@@ -8,10 +8,9 @@ import { Student } from '../models/Student';
   providedIn: 'root',
 })
 export class StudentService {
+  private apiServerUrl = 'http://localhost:8082';
 
   constructor(private httpClient: HttpClient) {}
-
-  private apiServerUrl = 'http://localhost:8082';
 
   getStudentById(id: string): Observable<Student | undefined> {
     const apiUrl = `${this.apiServerUrl}/student/find/${id}`;

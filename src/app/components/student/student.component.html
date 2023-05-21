@@ -2,7 +2,6 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">CIN</th>
         <th scope="col">First name</th>
         <th scope="col">Last name</th>
         <div class="input-group mb-3">
@@ -13,12 +12,11 @@
     </thead>
     <tbody *ngFor="let student of students">
       <tr>
-        <td>{{ student.getCin() }}</td>
-        <td>{{ student.getFirstName() }}</td>
-        <td>{{ student.getLastName() }}</td>
+        <td>{{ student.first_name }}</td>
+        <td>{{ student.last_name }}</td>
         <div class="d-flex gap-2 col-6 mx-auto">
           <button type="button" class="btn btn-info w-100" (click)="submitStudent(student)">Info</button>
-          <button type="button" class="btn btn-warning w-100">Edit</button>
+          <!-- <button type="button" class="btn btn-warning w-100">Edit</button> -->
         </div>
       </tr>
     </tbody>

@@ -42,28 +42,13 @@ export class StudentComponent implements OnInit {
   }
 
   public getStudents(): void {
-    this.studentService.getAllStudents().subscribe(
-      (response: any[]) => {
-        this.students = response.map(
-          (student) =>
-            new Student(
-              student.id,
-              student.first_name,
-              student.last_name,
-              student.email,
-              student.phone,
-              student.image_url,
-              student.level,
-              student.cin,
-              student.subjects
-            )
-        );
-        console.log(this.students);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
+    this.studentService.getAllStudents().subscribe((response: any[]) => {
+      this.students = response;
+    });
+    console.log(this.students);
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+    };
   }
 
   public searchStudents(event: Event): void {
@@ -72,11 +57,7 @@ export class StudentComponent implements OnInit {
     if (this.students) {
       for (const student of this.students) {
         if (
-          student.getFirstName().toLowerCase().indexOf(key.toLowerCase()) !==
-            -1 ||
-          student.getEmail().toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
-          student.getPhone().toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
-          student.getLevel().indexOf(key.toLowerCase()) !== -1
+          student.first_name?.toLowerCase().indexOf(key.toLowerCase()) !== -1
         ) {
           results.push(student);
         }
@@ -98,9 +79,7 @@ export class StudentComponent implements OnInit {
 
   public submitStudent(student: Student) {
     console.log('submitStudent : ', student);
-    // console.log('submitStudent id : ', student.getId());
     this.studentCardService.student = student;
-    this.router.navigate(['/card', student.getId()]);
+    this.router.navigate(['/card', student.id]);
   }
-
 }
