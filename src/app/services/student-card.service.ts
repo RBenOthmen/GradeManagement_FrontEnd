@@ -30,4 +30,12 @@ export class StudentCardService {
       .put<Student>(`${this.apiServerUrl}/student/update`, student)
       .pipe(catchError(this.handleError));
   }
+
+  deleteStudent(student: Student): Observable<Student> {
+    console.log('deleteStudent : ', student);
+    console.log("delete path: ", `${this.apiServerUrl}/student/delete/${student.id}`);
+    return this.httpClient
+      .delete<Student>(`${this.apiServerUrl}/student/delete/${student.id}`)
+      .pipe(catchError(this.handleError));
+  }
 }

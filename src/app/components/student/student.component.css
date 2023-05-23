@@ -1,0 +1,43 @@
+/* Custom styles for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  /* Styling for the search input */
+  .input-group {
+    margin-bottom: 15px;
+  }
+
+  /* Styling for the Info button */
+  .btn-info {
+    background-color: #3c78ff;
+    color: #fff;
+    border: none;
+    padding: 8px 0px;
+    cursor: pointer;
+  }
+
+  .btn-info:hover {
+    background-color: #099928;
+  }
+
+  /* Styling for the table rows */
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  /* Styling for the table rows on hover */
+  tbody tr:hover {
+    background-color: #e0e0e0;
+  }

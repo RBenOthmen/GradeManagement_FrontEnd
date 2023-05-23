@@ -6,6 +6,8 @@ import { Student } from 'src/app/models/Student';
 import { StudentService } from 'src/app/services/student.service';
 import { Router } from '@angular/router';
 import { StudentCardService } from 'src/app/services/student-card.service';
+import { Subject } from 'src/app/models/Subject';
+import { Module } from 'src/app/models/Module';
 
 @Component({
   selector: 'app-student',
@@ -18,6 +20,11 @@ export class StudentComponent implements OnInit {
   student: Student | undefined;
   public showCard: boolean = false;
   @Output() studentSubmitted = new EventEmitter<Student>();
+  moy: number = 0;
+  i: number = 0;
+  modulesCount: number = 0;
+  moyGen: number = 0;
+  sumScores: number = 0;
 
   constructor(
     private studentService: StudentService,
@@ -81,5 +88,26 @@ export class StudentComponent implements OnInit {
     console.log('submitStudent : ', student);
     this.studentCardService.student = student;
     this.router.navigate(['/card', student.id]);
+  }
+
+  public getModuleScore(module: Module): void {
+    console.log('getModuleScore');
+    this.i = 0;
+    this.moy = 0;
+    for (const subject of module.subjects) {
+      console.log(this.i);
+      this.i++;
+      this.moy += subject.grade;
+    }
+    console.log(this.i);
+    this.moy /= this.i;
+    this.modulesCount += 1;
+    console.log(this.moy);
+    this.sumScores += this.moy;
+  }
+
+  public getGeneralScore() {
+    this.moyGen = this.sumScores / this.modulesCount;
+    console.log(this.moyGen);
   }
 }

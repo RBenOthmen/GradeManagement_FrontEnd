@@ -1,24 +1,83 @@
-<div class="container-xl">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">First name</th>
-        <th scope="col">Last name</th>
+<table class="table table-hover">
+  <thead>
+    <!--   <tr>
+      <th scope="col">Action</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <ng-container *ngFor="let module of student?.modules">
+        <ng-container *ngFor="let subject of module.subjects">
+          <th scope="col">{{ subject.name }}</th>
+        </ng-container>
+      </ng-container>
+      <th scope="col">Moyenne Generale</th>
+    </tr>-->
+
+    <tr>
+      <th colspan="2">
         <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default">Search</span>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" (keyup)="searchStudents($event)">
+          <span class="input-group-text" id="inputGroup-sizing-default"
+            >Search</span
+          >
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            (keyup)="searchStudents($event)"
+          />
         </div>
-      </tr>
-    </thead>
-    <tbody *ngFor="let student of students">
-      <tr>
-        <td>{{ student.first_name }}</td>
-        <td>{{ student.last_name }}</td>
-        <div class="d-flex gap-2 col-6 mx-auto">
-          <button type="button" class="btn btn-info w-100" (click)="submitStudent(student)">Info</button>
-          <!-- <button type="button" class="btn btn-warning w-100">Edit</button> -->
-        </div>
-      </tr>
-    </tbody>
-  </table>
-</div>
+      </th>
+    </tr>
+  </thead>
+  <thead>
+    <tr>
+      <th scope="col">Action</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <!-- <th scope="col">Mat1</th> -->
+      <!-- <th scope="col">Mat2</th> -->
+      <!-- <th scope="col">Mat3</th> -->
+      <th scope="col">MU_UE1</th>
+      <!-- <th scope="col">Mat4</th> -->
+      <!-- <th scope="col">Mat5</th> -->
+      <th scope="col">MU_UE2</th>
+      <!-- <th scope="col">Mat6</th> -->
+      <!-- <th scope="col">Mat7</th> -->
+      <th scope="col">MU_UE3</th>
+      <!-- <th scope="col">Mat8</th> -->
+      <!-- <th scope="col">Mat9</th> -->
+      <th scope="col">MU_UE4</th>
+      <!-- <th scope="col">Mat10</th> -->
+      <!-- <th scope="col">Mat11</th> -->
+      <th scope="col">MU_UE5</th>
+      <!-- <th scope="col">Mat12</th>
+      <th scope="col">Mat13</th>
+      <th scope="col">MU_UE6</th>-->
+      <th scope="col">Moyenne Generale</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let student of students">
+    <tr>
+      <td>
+        <button
+          type="button"
+          class="btn btn-info w-100"
+          (click)="submitStudent(student)"
+        >
+          Info
+        </button>
+      </td>
+      <td>{{ student.first_name }}</td>
+      <td>{{ student.last_name }}</td>
+
+      <td *ngFor="let module of student.modules">
+        {{ getModuleScore(module) }}
+        <span>{{ this.moy | number: '1.2-2' }}</span>
+      </td>
+      <td>
+        {{ getGeneralScore() }}
+        {{ this.moyGen | number: '1.2-2' }}
+      </td>
+    </tr>
+  </tbody>
+</table>

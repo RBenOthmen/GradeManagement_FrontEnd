@@ -9,7 +9,6 @@
             <th>Id</th>
             <th>First name</th>
             <th>Last name</th>
-            <th></th>
           </tr>
         </thead>
 
@@ -25,123 +24,30 @@
               <p>{{ student?.last_name }}</p>
             </td>
             <td>
-              <button type="button" class="btn btn-danger">Delete</button>
+              <button type="submit" class="btn btn-danger" (click)="deleteStudent()">Delete</button>
             </td>
           </tr>
         </tbody>
       </div>
-
-      <!-- <div class="table">
-        <thead>
-          <tr>
-            <th>Web</th>
-            <th>AI</th>
-            <th>Data Mining</th>
-            <th>Python</th>
-            <th>Document Management</th>
-            <th>DevOps</th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>
-              <p>{{ student?.subjects?.web }}</p>
-            </td>
-            <td>
-              <p>{{ student?.subjects?.ai }}</p>
-            </td>
-            <td>
-              <p>{{ student?.subjects?.data_mining }}</p>
-            </td>
-            <td>
-              <p>{{ student?.subjects?.python }}</p>
-            </td>
-            <td>
-              <p>{{ student?.subjects?.document_management }}</p>
-            </td>
-            <td>
-              <p>{{ student?.subjects?.dev_ops }}</p>
-            </td>
-          </tr>
-        </tbody>
-      </div> -->
-
-      <!-- ---------------------------------------------------------- -->
 
       <h2>Grades</h2>
-      <div class="table">
-        <thead>
-          <tr>
-            <th>Grille service IT</th>
-            <th>Artificial Intelligence</th>
-            <th>Data Mining</th>
-            <th>Python</th>
-            <th>Document Management</th>
-            <th>DevOps</th>
-            <th></th>
-          </tr>
-        </thead>
 
-        <form #gradeForm="ngForm" (submit)="onSubmit(gradeForm)">
-          <tbody *ngFor="let module of student?.modules">
-            <tr *ngFor="let subject of module.subjects">
-              <td>
-                <input
-                  type="number"
-                  name="web"
-                  [ngModel]="module"
-                  class="small"
-                />
-              </td>
-              <!-- <td>
-                <input
-                  type="number"
-                  name="ai"
-                  [ngModel]="student?.subjects?.ai ?? 0"
-                  class="small"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  name="data_mining"
-                  [ngModel]="student?.subjects?.data_mining"
-                  class="small"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  name="python"
-                  [ngModel]="student?.subjects?.python"
-                  class="small"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  name="document_management"
-                  [ngModel]="student?.subjects?.document_management"
-                  class="small"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  name="dev_ops"
-                  [ngModel]="student?.subjects?.dev_ops"
-                  class="small"
-                />
-              </td> -->
-              <td>
-                <button type="submit" class="btn btn-warning">Submit</button>
-              </td>
-            </tr>
-          </tbody>
-        </form>
+      <div *ngFor="let module of student?.modules">
+        <h3>{{ module.name }}</h3>
+        <table>
+          <tr>
+            <th>Subject</th>
+            <th>Grade</th>
+          </tr>
+          <tr *ngFor="let subject of module.subjects; let i = index">
+            <td>{{ subject.name }}</td>
+            <td>
+              <input type="number" [(ngModel)]="subject.grade" />
+            </td>
+          </tr>
+        </table>
       </div>
+      <button (click)="updateGrades()" class="btn btn-warning">Update All Grades</button>
     </div>
   </div>
 </div>
